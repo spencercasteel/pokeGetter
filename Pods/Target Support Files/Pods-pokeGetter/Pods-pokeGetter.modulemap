@@ -1,0 +1,6 @@
+framework module Pods_pokeGetter {
+  umbrella header "Pods-pokeGetter-umbrella.h"
+
+  export *
+  module * { export * }
+}
