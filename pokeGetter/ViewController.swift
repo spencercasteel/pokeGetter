@@ -12,7 +12,8 @@ import SwiftyJSON
 import SDWebImage
 
 class ViewController: UIViewController {
-    @IBOutlet weak var pokemonNameOrID: UITextField!
+    
+    @IBOutlet weak var pokemonNameOrIDText: UITextField!
     @IBOutlet weak var pokemonNameLabel: UILabel!
     @IBOutlet weak var IDLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -27,9 +28,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let pokemonNameOrID =  pokemonNameOrID.text, pokemonNameOrID != "" else {
+        guard let pokemonNameOrID =  pokemonNameOrIDText.text, pokemonNameOrID != "" else {
             return
         }
+        
+        pokemonNameOrIDText.text = ""
         
         //url that we will use for our request
         let requestURL = "\(baseURL)\(pokemonNameOrID.lowercased().replacingOccurrences(of: " ", with: "+"))"
@@ -110,6 +113,7 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+      pokemonNameOrIDText.text = ""
     }
     
 }

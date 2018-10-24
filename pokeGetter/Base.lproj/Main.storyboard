@@ -112,7 +112,7 @@
                     <connections>
                         <outlet property="IDLabel" destination="axh-Hi-Wjd" id="JHT-Ak-3e0"/>
                         <outlet property="pokemonNameLabel" destination="LZx-Ug-e4g" id="icX-Ty-Xa3"/>
-                        <outlet property="pokemonNameOrID" destination="MSP-Hs-dJj" id="uih-fl-Vmg"/>
+                        <outlet property="pokemonNameOrIDText" destination="MSP-Hs-dJj" id="GsU-zW-LrK"/>
                         <outlet property="spriteImageView" destination="gUv-8S-4g4" id="phb-E3-SzK"/>
                         <outlet property="typeLabel" destination="Usc-RB-Xmd" id="ubC-y2-Lo2"/>
                         <outlet property="weightAndHeightLabel" destination="mea-Ts-cZm" id="evx-jT-9iY"/>
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-15" y="26"/>
         </scene>
     </scenes>
 </document>
