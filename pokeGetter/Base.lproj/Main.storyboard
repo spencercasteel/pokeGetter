@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PokeDex-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pokeGetter" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,10 +68,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUv-8S-4g4">
-                                <rect key="frame" x="20" y="280" width="335" height="317"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="317" id="Ee3-YX-b13"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="336" width="335" height="261"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pokemon name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZx-Ug-e4g">
                                 <rect key="frame" x="20" y="118" width="335" height="42"/>
@@ -79,6 +76,18 @@
                                     <constraint firstAttribute="height" constant="42" id="Rhs-3F-pMI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCo-5P-j5a">
+                                <rect key="frame" x="163" y="297" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchedTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="KDT-QF-Xi4"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default / Shiny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl7-gw-pqI">
+                                <rect key="frame" x="132" y="268" width="111.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,8 +100,8 @@
                             <constraint firstItem="mea-Ts-cZm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LBD-f8-Bqc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LZx-Ug-e4g" secondAttribute="trailing" constant="20" id="M6c-yV-VcQ"/>
                             <constraint firstItem="MSP-Hs-dJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="N4c-wJ-fgr"/>
+                            <constraint firstItem="cl7-gw-pqI" firstAttribute="top" secondItem="mea-Ts-cZm" secondAttribute="bottom" constant="8" id="P6d-zQ-ZcR"/>
                             <constraint firstItem="axh-Hi-Wjd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PJD-O8-wQt"/>
-                            <constraint firstItem="gUv-8S-4g4" firstAttribute="top" secondItem="mea-Ts-cZm" secondAttribute="bottom" constant="20" id="QWO-Zq-guh"/>
                             <constraint firstItem="LZx-Ug-e4g" firstAttribute="top" secondItem="axh-Hi-Wjd" secondAttribute="bottom" constant="8" id="R2T-hA-dLc"/>
                             <constraint firstItem="LZx-Ug-e4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Sll-nn-q5R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mea-Ts-cZm" secondAttribute="trailing" constant="20" id="U1a-xd-jhG"/>
@@ -102,15 +111,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gUv-8S-4g4" secondAttribute="trailing" constant="20" id="hgK-Zw-Yim"/>
                             <constraint firstItem="qFF-AT-AlT" firstAttribute="top" secondItem="gUv-8S-4g4" secondAttribute="bottom" constant="20" id="jbd-qU-gtV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MSP-Hs-dJj" secondAttribute="trailing" constant="20" id="lM6-3T-M7B"/>
+                            <constraint firstItem="jCo-5P-j5a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="m9k-Ts-x6Y"/>
                             <constraint firstItem="Usc-RB-Xmd" firstAttribute="top" secondItem="LZx-Ug-e4g" secondAttribute="bottom" constant="8" id="o0Q-Ct-T5f"/>
+                            <constraint firstItem="cl7-gw-pqI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o5n-cH-jDU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Usc-RB-Xmd" secondAttribute="trailing" constant="20" id="oEz-65-T1k"/>
+                            <constraint firstItem="gUv-8S-4g4" firstAttribute="top" secondItem="jCo-5P-j5a" secondAttribute="bottom" constant="8" id="ocb-Qa-Cgo"/>
+                            <constraint firstItem="jCo-5P-j5a" firstAttribute="top" secondItem="cl7-gw-pqI" secondAttribute="bottom" constant="8" id="r0S-Em-8cp"/>
                             <constraint firstItem="MSP-Hs-dJj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ubd-pI-a35"/>
                             <constraint firstItem="Usc-RB-Xmd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wr1-Ml-8Fd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="PokeDex" id="ISk-PK-r9g"/>
                     <connections>
                         <outlet property="IDLabel" destination="axh-Hi-Wjd" id="JHT-Ak-3e0"/>
+                        <outlet property="pictureSwitch" destination="jCo-5P-j5a" id="7gr-Nf-Kng"/>
                         <outlet property="pokemonNameLabel" destination="LZx-Ug-e4g" id="icX-Ty-Xa3"/>
                         <outlet property="pokemonNameOrIDText" destination="MSP-Hs-dJj" id="GsU-zW-LrK"/>
                         <outlet property="spriteImageView" destination="gUv-8S-4g4" id="phb-E3-SzK"/>
@@ -120,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="26"/>
+            <point key="canvasLocation" x="924" y="25.637181409295355"/>
         </scene>
     </scenes>
 </document>

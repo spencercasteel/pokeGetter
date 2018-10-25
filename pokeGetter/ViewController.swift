@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var weightAndHeightLabel: UILabel!
     @IBOutlet weak var spriteImageView: UIImageView!
+    @IBOutlet weak var pictureSwitch: UISwitch!
     
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
     
@@ -26,6 +27,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
+    @IBAction func switchedTapped(_ sender: Any) {
+        
+    }
+    
     
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let pokemonNameOrID =  pokemonNameOrIDText.text, pokemonNameOrID != "" else {
@@ -46,7 +53,7 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-
+                
                 var typeString = ""
                 var weightAndHeight = ""
                 
@@ -69,18 +76,18 @@ class ViewController: UIViewController {
                 //                }
                 
                 
-//                if let typesJson = json["types"].array {
-//
-//                    var types = ""
-//
-//                    for type in typesJson {
-//                        if let typeName = type["type"]["name"].string {
-//                            types += "\(typeName) / "
-//                        }
-//                    }
-//                    print(types)
-//                    self.typeLabel.text = types
-//                }
+                //                if let typesJson = json["types"].array {
+                //
+                //                    var types = ""
+                //
+                //                    for type in typesJson {
+                //                        if let typeName = type["type"]["name"].string {
+                //                            types += "\(typeName) / "
+                //                        }
+                //                    }
+                //                    print(types)
+                //                    self.typeLabel.text = types
+                //                }
                 
                 if let type1 = json["types"][0]["type"]["name"].string {
                     typeString += "Type: \n \(type1)"
@@ -97,23 +104,40 @@ class ViewController: UIViewController {
                 if let height = json["height"].int {
                     weightAndHeight += "height: \(height)"
                 }
-
+                
                 print(typeString)
                 print(weightAndHeight)
                 
-                if let spriteURL = json["sprites"]["front_default"].string {
-                    if let url = URL(string: spriteURL) {
-                        //Load this into the image view
-                        self.spriteImageView.sd_setImage(with: url, completed: nil)
+                func shinySprite() {
+                    if let spriteURL = json["sprites"]["front_shiny"].string {
+                        if let url = URL(string: spriteURL) {
+                            //Load this into the image view
+                            self.spriteImageView.sd_setImage(with: url, completed: nil)
+                        }
                     }
                 }
+                    func defaultSprite() {
+                        if let spriteURL = json["sprites"]["front_default"].string {
+                            if let url = URL(string: spriteURL) {
+                                //Load this into the image view
+                                self.spriteImageView.sd_setImage(with: url, completed: nil)
+                            }
+                        }
+                    }
+                
+                if self.pictureSwitch.isOn {
+                    shinySprite()
+                } else {
+                    defaultSprite()
+                }
+                
                 self.typeLabel.text = typeString
                 self.weightAndHeightLabel.text = weightAndHeight
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-      pokemonNameOrIDText.text = ""
+        pokemonNameOrIDText.text = ""
     }
     
 }
